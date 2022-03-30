@@ -15,4 +15,13 @@ suspension_coil_df <- read.csv("C:/Users/rhian/MechaCar_Statistical_Analysis/Sus
 total_summary <- suspension_coil_df %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI))
 # Group each lot by mean,median,variance,SD
 lot_summary <- suspension_coil_df %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI))
-                                               
+
+# DELIVERABLE 3
+# Use t.test() to determine if PSI across all lots is different from pop. mean
+# of 1,500 pounds per square inch
+t.test(suspension_coil_df$PSI, mu=1500)
+
+# Create 3 more scripts for each lot
+t.test(subset(suspension_coil_df, Manufacturing_Lot=="Lot1")$PSI, mu=1500)
+t.test(subset(suspension_coil_df, Manufacturing_Lot=="Lot2")$PSI, mu=1500)
+t.test(subset(suspension_coil_df, Manufacturing_Lot=="Lot3")$PSI, mu=1500)
